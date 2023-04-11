@@ -1,0 +1,33 @@
+/*
+Write a program that removes all non alpha characters from the given input.
+
+Ex: If the input is:
+
+-Hello, 1 world$!
+the output is:
+
+Helloworld
+*/
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   string inputStr;
+   string output;
+   int i;
+   
+   getline(cin,inputStr);
+   
+   for (i = 0; i < inputStr.length(); i++){
+      if ((inputStr.at(i) >= 'A' && inputStr.at(i) <= 'Z') || (inputStr.at(i) >= 'a' && inputStr.at(i) <= 'z')) {
+         output = output + inputStr.at(i);
+    }
+   }
+   
+   cout << output << endl;
+   return 0;
+}
