@@ -1,0 +1,75 @@
+/*
+Define a function named GetWordFrequency that takes a vector of strings and a search word as parameters. Function GetWordFrequency() then returns the number of occurrences of the search word in the vector parameter (case insensitive).
+
+Then, write a main program that reads a list of words into a vector, calls function GetWordFrequency() repeatedly, and outputs the words in the vector with their frequencies. The input begins with an integer indicating the number of words that follow.
+
+Ex: If the input is:
+
+5 hey Hi Mark hi mark
+the output is:
+
+hey 1
+Hi 2
+Mark 2
+hi 2
+mark 2
+Hint: Use tolower() to set the first letter of each word to lowercase before comparing.
+
+The program must define and use the following function:
+int GetWordFrequency(vector<string> wordsList, string currWord)
+*/
+
+
+
+#include <iostream>
+#include <vector> 
+#include <string>
+#include <cctype>
+using namespace std;
+
+int GetWordFrequency(vector<string> wordsList, string currWord) {
+    int frequency = 0;
+    bool same;
+    
+    int i = 0;
+    while (i < wordsList.size()) {
+        if (wordsList[i].size() == currWord.size()) {
+            same = true;
+            int j = 0;
+            while (j < currWord.size()) {
+                if (tolower(wordsList[i][j]) != tolower(currWord[j])) {
+                    same = false;
+                    break;
+                }
+                j++;
+            }
+            if (same) {
+                frequency++;
+            }
+        }
+        i++;
+    }
+    
+    return frequency;
+}
+
+int main() {
+   int input;
+   
+   cin >> input;
+   vector<string> listOfWords(input);
+   vector<int> frequencyCount(input, 0);
+   for (int i = 0; i < input; i++) {
+        cin >> listOfWords[i];
+   }
+   
+   for (int i = 0; i < input; i++){
+      int frequency = GetWordFrequency(listOfWords, listOfWords[i]);
+      if (frequency > 0){
+           frequencyCount[i] = frequency;
+      }
+      cout << listOfWords[i] << " " << frequencyCount[i] << endl;
+   }
+
+   return 0;
+}
