@@ -1,0 +1,37 @@
+/*
+Given a line of text as input, output the number of characters excluding spaces, periods, exclamation points, or commas.
+
+Ex: If the input is:
+
+Listen, Mr. Jones, calm down.
+the output is:
+
+21
+Note: Account for all characters that aren't spaces, periods, exclamation points, or commas (Ex: "r", "2", "?").
+*/
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userText;
+   int numberChar = 0;
+   int i = 0;
+   
+   getline(cin, userText);  // Gets entire line, including spaces. 
+
+   while (userText[i] != '\0') {
+      if ((userText[i] != ' ') && (userText[i] != '.') && (userText[i] != '!') && (userText[i] != ',')) {
+         numberChar++;
+      }
+      i++;
+  }
+  
+  cout << numberChar << endl;
+
+   return 0;
+}
