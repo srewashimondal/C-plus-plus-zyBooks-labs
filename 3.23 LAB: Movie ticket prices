@@ -1,0 +1,64 @@
+/*
+Write a program that takes in a string that holds the values "day" or "night" and an integer that holds a person's age, and outputs a movie ticket price. Movie prices are free for everyone under the age of 4. Daytime prices are $8 for everyone age 4 or higher. Nighttime prices are $12 for ages 4 - 16, $15 for ages 17 - 54 and $13 for ages 55 and above.
+
+Ex: If the input is:
+
+night 50
+the output is:
+
+$15
+Ex: If the input is:
+
+day 15
+the output is:
+
+$8
+Ex: If the input is:
+
+night 3
+the output is:
+
+free
+*/
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   string time;
+   int age;
+   int movie;
+   
+   cin >> time;
+   cin >> age;
+   
+   
+   if (age < 4){
+    movie = 0;
+    cout << "free" << endl;
+   }
+   
+   else if ((age >= 4) && (time == "day")){
+      movie = 8;
+      cout << "$" << movie << endl;
+   }
+   
+   if (((age >= 4) && (age <= 16)) && (time == "night")){
+      movie = 12;
+      cout << "$" << movie << endl;
+   }
+   if (((age >= 17) && (age <= 54)) && (time == "night")){
+      movie = 15;
+      cout << "$" << movie << endl;
+   }
+   if ((age >= 55) && (time == "night")){
+      movie = 13;
+      cout << "$" << movie << endl;
+   }
+
+   return 0;
+}
