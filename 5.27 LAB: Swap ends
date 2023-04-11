@@ -1,0 +1,47 @@
+/*
+Write a program that reads a list of integers from input and outputs the list with the first and last numbers swapped. The input begins with an integer indicating the number of values that follow. Assume the list contains fewer than 20 integers.
+
+Ex: If the input is:
+
+8 
+1 2 3 4 5 6 7 8
+the output is:
+
+8 2 3 4 5 6 7 1
+For coding simplicity, follow every output value by a space, including the last one. The output ends with a newline.
+*/
+
+
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   int input;
+   int i;
+   int first;
+   vector<int> userValues(20);
+   
+   cin >> input;
+   
+   while(i < input) {
+      cin >> userValues[i];
+      i++;
+   }
+   
+   first = userValues[0];
+   userValues[0] = userValues[input - 1];
+   userValues[input - 1] = first;
+   
+   
+   for (int k = 0; k < input; k++) {
+        cout << userValues[k];
+        cout << " ";
+    }
+    cout << endl;
+
+   return 0;
+}
